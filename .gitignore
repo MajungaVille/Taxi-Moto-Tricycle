@@ -1,0 +1,38 @@
+# Eclipse
+.classpath
+.project
+.settings/
+ 
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+ 
+# Maven
+log/
+target/
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.recommenders
+.externalToolBuilders/
+.target
+*target*
+.recommenders/
+Servers
+RemoteSystemsTempFiles
+*.jar
+*.war
+*.ear
+*.class
+*.log
+
