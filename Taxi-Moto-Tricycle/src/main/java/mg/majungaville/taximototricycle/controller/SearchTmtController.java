@@ -1,3 +1,4 @@
+
 /*
  * Licensed to Taxi-Moto-Tricycle under one or more contributor
  * license agreements. See the NOTICE file distributed with
@@ -16,18 +17,23 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package mg.majungaville.taximototricycle.util;
+package mg.majungaville.taximototricycle.controller;
 
-public final class StringUtil {
-	private StringUtil() {
-		throw new AssertionError();
-	}
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
-	public static boolean isEmpty(final String str) {
-		return str == null || str.isEmpty();
-	}
+import mg.majungaville.taximototricycle.model.Tmt;
+/**
+ * @author MajungaVille
+ */
+@Controller
+public class SearchTmtController {
 
-	public static boolean isNotEmpty(final String str) {
-		return !isEmpty(str);
+	
+	@GetMapping("/greeting")
+	public String greetingForm(Model model) {
+		model.addAttribute("greeting", new Tmt());
+		return "greeting";
 	}
 }

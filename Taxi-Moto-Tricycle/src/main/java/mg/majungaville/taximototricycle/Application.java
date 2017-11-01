@@ -16,18 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package mg.majungaville.taximototricycle.util;
+package mg.majungaville.taximototricycle;
 
-public final class StringUtil {
-	private StringUtil() {
-		throw new AssertionError();
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
 	}
 
-	public static boolean isEmpty(final String str) {
-		return str == null || str.isEmpty();
-	}
-
-	public static boolean isNotEmpty(final String str) {
-		return !isEmpty(str);
-	}
 }

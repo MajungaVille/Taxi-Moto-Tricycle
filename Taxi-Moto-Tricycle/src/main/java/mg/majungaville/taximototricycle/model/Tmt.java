@@ -16,18 +16,39 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package mg.majungaville.taximototricycle.util;
+package mg.majungaville.taximototricycle.model;
 
-public final class StringUtil {
-	private StringUtil() {
-		throw new AssertionError();
+public class Tmt {
+
+	private String immatricuation;
+	
+	private String phoneNumber;
+	
+	private Integer number;
+
+	public String getImmatricuation() {
+		return immatricuation;
 	}
 
-	public static boolean isEmpty(final String str) {
-		return str == null || str.isEmpty();
+	public void setImmatricuation(String immatricuation) {
+		this.immatricuation = immatricuation;
 	}
 
-	public static boolean isNotEmpty(final String str) {
-		return !isEmpty(str);
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public Integer getNumber() {
+		return number;
+	}
+
+	public void setNumber(Integer number) {
+		this.number = number;
+	}
+	
+	
 }

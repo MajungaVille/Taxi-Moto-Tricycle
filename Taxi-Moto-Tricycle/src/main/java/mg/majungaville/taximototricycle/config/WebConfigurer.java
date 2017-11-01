@@ -1,3 +1,4 @@
+
 /*
  * Licensed to Taxi-Moto-Tricycle under one or more contributor
  * license agreements. See the NOTICE file distributed with
@@ -16,18 +17,24 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package mg.majungaville.taximototricycle.util;
+package mg.majungaville.taximototricycle.config;
 
-public final class StringUtil {
-	private StringUtil() {
-		throw new AssertionError();
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+/**
+ * @author MajungaVille
+ */
+@Configuration
+@EnableWebMvc
+public class WebConfigurer extends WebMvcConfigurerAdapter {
+
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+
+		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
 	}
 
-	public static boolean isEmpty(final String str) {
-		return str == null || str.isEmpty();
-	}
-
-	public static boolean isNotEmpty(final String str) {
-		return !isEmpty(str);
-	}
 }
