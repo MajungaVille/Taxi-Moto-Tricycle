@@ -21,10 +21,15 @@ package mg.majungaville.taximototricycle.model;
 public class Tmt {
 
 	private String immatricuation;
-	
+
 	private String phoneNumber;
-	
+
 	private Integer number;
+
+	/* for search */
+	private String searchCriteria;
+
+	private String searchValue;
 
 	public String getImmatricuation() {
 		return immatricuation;
@@ -49,6 +54,22 @@ public class Tmt {
 	public void setNumber(Integer number) {
 		this.number = number;
 	}
-	
+
+	public String getSearchCriteria() {
+		return searchCriteria;
+	}
+
+	public void setSearchCriteria(String searchCriteria) {
+		this.searchCriteria = searchCriteria;
+	}
+
+	public String getSearchValue() {
+		return searchValue;
+	}
+
+	public void setSearchValue(String searchValue) {
+		this.searchValue = searchValue;
+	}
+
 	
 }

@@ -19,21 +19,59 @@
  */
 package mg.majungaville.taximototricycle.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import mg.majungaville.taximototricycle.model.Tmt;
+import mg.majungaville.taximototricycle.service.SearchTmtService;
+
 /**
  * @author MajungaVille
  */
 @Controller
 public class SearchTmtController {
 
-	
-	@GetMapping("/greeting")
-	public String greetingForm(Model model) {
-		model.addAttribute("greeting", new Tmt());
-		return "greeting";
+	/** Le logger */
+	private static final Logger LOGGER = LoggerFactory.getLogger(SearchTmtController.class);
+
+	/** etiquette pour le critere immatriculation */
+	private static final String IMMAT_LABEL = "Immatriculation";
+
+	/** etiquette pour le critere numero */
+	private static final String NUMB_LABEL = "Numéro";
+
+	@Autowired
+	private SearchTmtService searchTmtService;
+
+	@GetMapping("/search_tmt")
+	public String initSearchForm(Model model) {
+		LOGGER.info("Initialisation de la page principale en cours ");
+
+		model.addAttribute("tmt", new Tmt());
+		return "search_tmt";
+	}
+
+	@PostMapping("/search_tmt")
+	public String submitSearchForm(@ModelAttribute Tmt tmt, Model model) {
+		System.out.println("valeur soumise : " + tmt.getSearchValue());
+
+		LOGGER.info("Recherche en cours des informations relatives à un tmt avec le critère {} ayant la valeur {} ",
+				getCriteriaLabel(tmt.getSearchCriteria()), tmt.getSearchValue());
+
+		final Tmt foundTmt = searchTmtService.findTmt(tmt.getSearchCriteria(), tmt.getSearchValue());
+
+		model.addAttribute("foundTmt", foundTmt);
+
+		return "search_tmt";
+	}
+
+	private String getCriteriaLabel(String searchCriteria) {
+		return "0".equals(searchCriteria) ? IMMAT_LABEL : NUMB_LABEL;
 	}
 }
