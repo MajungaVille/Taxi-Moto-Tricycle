@@ -16,20 +16,15 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package mg.majungaville.taximototricycle.util;
+package mg.majungaville.taximototricycle.service;
 
-public final class StringUtil {
-	
-	public static final String EMPTY = "";
-	private StringUtil() {
-		throw new AssertionError();
-	}
+import mg.majungaville.taximototricycle.model.Tmt;
 
-	public static boolean isEmpty(final String str) {
-		return str == null || str.isEmpty();
-	}
+/**
+ * @author andriantomanga
+ *
+ */
+public interface SearchTmtService {
 
-	public static boolean isNotEmpty(final String str) {
-		return !isEmpty(str);
-	}
+	Tmt findTmt(final String criteria, final String value);
 }
