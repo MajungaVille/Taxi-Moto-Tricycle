@@ -16,39 +16,24 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package mg.majungaville.taximototricycle.util;
+package mg.majungaville.taximototricycle.exception;
 
 /**
  * @author andriantomanga
  */
-public final class StringUtil {
-
-	/** chaine vide */
-	public static final String EMPTY = "";
-
-	private StringUtil() {
-		throw new AssertionError();
-	}
+public class ServiceException extends Exception {
+	private static final long serialVersionUID = -8860684325249598308L;
 
 	/**
-	 * Indique si la chaine est vide
+	 * Constructeur
 	 * 
-	 * @param str
-	 *            la chaine a evaluer
-	 * @return <code>true</code> si la chaine est vide
+	 * @param message
+	 *            le message de l'exception
+	 * @param cause
+	 *            la cause
 	 */
-	public static boolean isEmpty(final String str) {
-		return str == null || str.isEmpty();
+	public ServiceException(String message, Throwable cause) {
+		super(message, cause);
 	}
 
-	/**
-	 * Indique si la chaine n'est pas vide
-	 * 
-	 * @param str
-	 *            la chaine a evaluer
-	 * @return <code>true</code> si la chaine n'est pas vide
-	 */
-	public static boolean isNotEmpty(final String str) {
-		return !isEmpty(str);
-	}
 }

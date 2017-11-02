@@ -18,13 +18,24 @@
  */
 package mg.majungaville.taximototricycle.service;
 
+import mg.majungaville.taximototricycle.exception.ServiceException;
 import mg.majungaville.taximototricycle.model.Tmt;
 
 /**
  * @author andriantomanga
- *
  */
 public interface SearchTmtService {
 
-	Tmt findTmt(final String criteria, final String value);
+	/**
+	 * Recherche un TMT correspondant au critere et valeur donnes
+	 * 
+	 * @param criteria
+	 *            le critere de recherche
+	 * @param value
+	 *            la valeur recherchee
+	 * @return le TMT correspondant aux parametres specifies
+	 * @throws ServiceException
+	 *             en cas d'erreur
+	 */
+	Tmt findTmt(final String criteria, final String value) throws ServiceException;
 }

@@ -30,6 +30,8 @@ public class Tmt {
 	private String searchCriteria;
 
 	private String searchValue;
+	
+	private boolean success;
 
 	public String getImmatricuation() {
 		return immatricuation;
@@ -69,6 +71,14 @@ public class Tmt {
 
 	public void setSearchValue(String searchValue) {
 		this.searchValue = searchValue;
+	}
+
+	public boolean isSuccess() {
+		return success;
+	}
+
+	public void setSuccess(boolean success) {
+		this.success = success;
 	}
 
 	
