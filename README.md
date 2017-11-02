@@ -11,7 +11,7 @@ Un module ```release``` sera bientôt mis en ligne pour les non informaticiens.
 
 ## Screenshot
 
-![Image not found](https://raw.githubusercontent.com/MajungaVille/Taxi-Moto-Tricycle/Taxi-Moto-Tricycle/screenshot.png "TMT App")
+![Image not found](https://github.com/MajungaVille/Taxi-Moto-Tricycle/blob/master/Taxi-Moto-Tricycle/screenshot.png "TMT App")
 
 ## Contact
 
