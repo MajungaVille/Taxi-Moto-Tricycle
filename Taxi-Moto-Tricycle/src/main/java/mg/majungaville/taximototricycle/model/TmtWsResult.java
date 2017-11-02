@@ -1,3 +1,4 @@
+
 /*
  * Licensed to Taxi-Moto-Tricycle under one or more contributor
  * license agreements. See the NOTICE file distributed with
@@ -16,39 +17,49 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package mg.majungaville.taximototricycle.util;
+package mg.majungaville.taximototricycle.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * @author andriantomanga
  */
-public final class StringUtil {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class TmtWsResult {
 
-	/** chaine vide */
-	public static final String EMPTY = "";
+	// {"r":"1","id":"2172","n":"157","i":"6354MD","t":"0340501635","p":""}
+	// mapping
+	private Integer n;
+	private String i;
+	private String t;
 
-	private StringUtil() {
-		throw new AssertionError();
+	public Integer getN() {
+		return n;
 	}
 
-	/**
-	 * Indique si la chaine est vide
-	 * 
-	 * @param str
-	 *            la chaine a evaluer
-	 * @return <code>true</code> si la chaine est vide
-	 */
-	public static boolean isEmpty(final String str) {
-		return str == null || str.isEmpty();
+	public void setN(Integer n) {
+		this.n = n;
 	}
 
-	/**
-	 * Indique si la chaine n'est pas vide
-	 * 
-	 * @param str
-	 *            la chaine a evaluer
-	 * @return <code>true</code> si la chaine n'est pas vide
-	 */
-	public static boolean isNotEmpty(final String str) {
-		return !isEmpty(str);
+	public String getI() {
+		return i;
 	}
+
+	public void setI(String i) {
+		this.i = i;
+	}
+
+	public String getT() {
+		return t;
+	}
+
+	public void setT(String t) {
+		this.t = t;
+	}
+
+	@Override
+	public String toString() {
+		return "TmtWsResult [n=" + n + ", i=" + i + ", t=" + t + "]";
+	}
+
 }

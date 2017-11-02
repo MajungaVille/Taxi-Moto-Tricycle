@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import mg.majungaville.taximototricycle.exception.ServiceException;
 import mg.majungaville.taximototricycle.model.Tmt;
 import mg.majungaville.taximototricycle.service.SearchTmtService;
 
@@ -49,6 +50,12 @@ public class SearchTmtController {
 	@Autowired
 	private SearchTmtService searchTmtService;
 
+	/**
+	 * Initialise les donnees de la vue
+	 * 
+	 * @param model
+	 * @return la vue
+	 */
 	@GetMapping("/search_tmt")
 	public String initSearchForm(Model model) {
 		LOGGER.info("Initialisation de la page principale en cours ");
@@ -57,6 +64,15 @@ public class SearchTmtController {
 		return "search_tmt";
 	}
 
+	/**
+	 * Lance la recherche de TMT
+	 * 
+	 * @param tmt
+	 *            l'objet TMT englobant les informations de la recherche
+	 * @param model
+	 *            le modele pour la vue
+	 * @return la vue
+	 */
 	@PostMapping("/search_tmt")
 	public String submitSearchForm(@ModelAttribute Tmt tmt, Model model) {
 		System.out.println("valeur soumise : " + tmt.getSearchValue());
@@ -64,13 +80,22 @@ public class SearchTmtController {
 		LOGGER.info("Recherche en cours des informations relatives à un tmt avec le critère {} ayant la valeur {} ",
 				getCriteriaLabel(tmt.getSearchCriteria()), tmt.getSearchValue());
 
-		final Tmt foundTmt = searchTmtService.findTmt(tmt.getSearchCriteria(), tmt.getSearchValue());
+		Tmt foundTmt = new Tmt();
+		try {
+			foundTmt = searchTmtService.findTmt(tmt.getSearchCriteria(), tmt.getSearchValue());
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
 
 		model.addAttribute("foundTmt", foundTmt);
-
 		return "search_tmt";
 	}
 
+	/**
+	 * 
+	 * @param searchCriteria
+	 * @return
+	 */
 	private String getCriteriaLabel(String searchCriteria) {
 		return "0".equals(searchCriteria) ? IMMAT_LABEL : NUMB_LABEL;
 	}
