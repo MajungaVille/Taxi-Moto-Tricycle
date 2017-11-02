@@ -3,6 +3,11 @@
 
 Application web permettant de retrouver rapidement les informations d'identification et de contact relatives à un Taxi-Moto-Tricycle ou Bajajy pour les intimes.
 
+## Build status
+
+[![Build Status](https://travis-ci.org/MajungaVille/Taxi-Moto-Tricycle.svg?branch=master)](https://travis-ci.org/MajungaVille/Taxi-Moto-Tricycle)
+
+
 ## Pour lancer l'application
 
 En utilisant Maven : ```./mvnw spring-boot:run```
