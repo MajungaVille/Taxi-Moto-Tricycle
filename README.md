@@ -1,6 +1,6 @@
 
 ## Taxi-Moto-Tricycle
- &nbsp; [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Participer%20au%20projet%20Taxi-Moto-Tricycle%20de%20Majunga&url=https://github.com/MajungaVille/Taxi-Moto-Tricycle/)
+ &nbsp; [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Participer%20au%20projet%20Taxi-Moto-Tricycle%20de%20Majunga&url=https://github.com/MajungaVille/Taxi-Moto-Tricycle/) &nbsp; [![Price](https://img.shields.io/badge/price-FREE-0098f7.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 Application web permettant de retrouver rapidement les informations d'identification et de contact relatives à un Taxi-Moto-Tricycle ou Bajajy pour les intimes.
 
